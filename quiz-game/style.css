@@ -1,0 +1,169 @@
+*{ /* universal selector */
+    margin:0;  /*tüm kenar boşluklarını sıfırla*/
+    padding:0; /* tüm iç boşlukları sıfırla */
+    box-sizing: border-box; /* Elemanların genişlik hesaplamasını değiştirir, padding ve border'ı genişliğe dahil eder */
+}
+
+body{
+    background: #f5efe6; /* sayfanın arka plan rengini açık bir ton yapar */
+    display: flex; /* Flexbox düzenini etkinleştirir, çocuk elemanları esnek kutular olarak düzenler */
+    justify-content: center; /* Çocuk elemanları yatay olarak ortalar */
+    align-items: center; /* Çocuk elemanları dikey olarak ortalar */
+    min-height: 100vh; /* Sayfanın minimum yüksekliğini viewport yüksekliği kadar yapar, böylece içerik her zaman ortalanır */
+    padding: 1rem; /* Sayfanın iç kenar boşluğunu 1 rem yapar, böylece içerik kenarlara yapışmaz */
+    font-family: sans-serif; /* Sayfanın yazı tipini sans-serif olarak ayarlar, daha modern ve okunabilir bir görünüm sağlar */
+}
+
+.container {
+    background-color: white; /* Konteynerin arka plan rengini beyaz yapar */
+    border-radius: 1rem; /* Konteynerin köşelerini yuvarlar */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Konteynerin altına hafif bir gölge ekler, böylece daha belirgin ve üç boyutlu görünür */
+    width: 100%; /* Konteynerin genişliğini yüzde 100 yapar, böylece ebeveyn elemanın genişliğini tamamen kaplar */
+    max-width: 600px; /* Konteynerin maksimum genişliğini */
+    overflow: hidden; /* Konteynerin içeriği taşarsa, taşan kısmı gizler */
+    position: relative; /* Konteynerin konumunu göreceli yapar, böylece içindeki mutlak konumlu elemanlar bu konteyneri referans alır */
+}
+
+.screen{
+    display: none; /* Ekranı başlangıçta gizler, böylece sadece aktif ekran görünür */
+    padding: 2rem; /* Ekranın iç kenar boşluğunu 2 rem yapar, böylece içerik kenarlara yapışmaz */
+    text-align: center; /* Ekranın içeriğini yatay olarak ortalar */
+}
+
+.screen.active{
+    display: block; /* Sadece active classı olan ekranı görünür yapar */
+}
+
+#start-screen h1{
+    color:#e86a33; /* Başlık metninin rengini turuncu yapar, böylece dikkat çekici ve enerjik bir görünüm sağlar */
+    margin-bottom: 20px; /* Başlık ile altındaki diğer içerik arasında 20 piksel boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+    font-size: 2.5rem; /* Başlık metninin boyutunu 2.5 rem yapar, böylece büyük ve etkileyici bir görünüm sağlar */
+}
+
+#start-screen p{
+    color:666; /* Paragraf metninin rengini gri yapar, böylece başlıkla kontrast oluşturur ve daha okunabilir bir görünüm sağlar */
+    margin-bottom: 30px; /* Paragraf ile altındaki diğer içerik arasında 30 piksel boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+    font-size: 1.2rem; /* Paragraf metninin boyutunu 1.2 rem yapar, böylece okunabilir ve dengeli bir görünüm sağlar */
+}
+
+.quiz-header{
+    margin-bottom: 1rem; /* Quiz başlığı ile altındaki diğer içerik arasında 1 rem boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+}
+
+#question-text{
+    color:#333; /* Soru metninin rengini koyu gri yapar, böylece daha okunabilir ve dikkat çekici bir görünüm sağlar */
+    font-size: 1.5rem; /* Soru metninin boyutunu 1.5 rem yapar, böylece okunabilir ve etkileyici bir görünüm sağlar */
+    margin-bottom: 1rem; /* Soru metni ile altındaki diğer içerik arasında 1 rem boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+    line-height: 1.4; /* Soru metninin satır yüksekliğini 1.4 yapar, böylece daha rahat okunabilir bir görünüm sağlar */
+}
+
+.quiz-info{
+    display: flex; /* Flexbox düzenini etkinleştirir, çocuk elemanları esnek kutular olarak düzenler */
+    justify-content: space-between; /* Çocuk elemanları yatay olarak birbirinden uzaklaştırır, böylece aralarında eşit boşluk bırakır */
+    color: #666; /* Quiz bilgi metninin rengini gri yapar, böylece daha okunabilir ve dengeli bir görünüm sağlar */
+    margin-bottom: 10px; /* Quiz bilgi metni ile altındaki diğer içerik arasında 10 piksel boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+}
+
+.answers-container{
+    display: flex; /* Flexbox düzenini etkinleştirir, çocuk elemanları esnek kutular olarak düzenler */
+    flex-direction: column; /* Çocuk elemanları dikey olarak sıralar, böylece her cevap seçeneği alt alta görünür */
+    gap: 10px; /* Cevap seçenekleri arasında 10 piksel boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+    margin-bottom: 25px; /* Cevap seçenekleri ile altındaki diğer içerik arasında 25 piksel boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+}
+
+.answer-btn{
+    background-color: #f8f0e5; /* Cevap butonlarının arka plan rengini açık bir ton yapar, böylece daha çekici ve kullanıcı dostu bir görünüm sağlar */ 
+    color: #333; /* Cevap butonlarının metin rengini koyu gri yapar, böylece daha okunabilir ve dikkat çekici bir görünüm sağlar */ 
+    border: 2px solid #eadbc8; /* Cevap butonlarının kenarlığını açık bir ton yapar, böylece daha belirgin ve çekici bir görünüm sağlar */  
+    border-radius: 10px; /* Cevap butonlarının köşelerini yuvarlar, böylece daha modern ve kullanıcı dostu bir görünüm sağlar */    
+    padding: 1rem; /* Cevap butonlarının iç kenar boşluğunu 1 rem yapar, böylece metin butonun içinde rahatça yer alır ve daha çekici bir görünüm sağlar */ 
+    cursor: pointer; /* Cevap butonlarının üzerine gelindiğinde imleci el şeklinde yapar, böylece kullanıcıya tıklanabilir olduğunu gösterir */
+    text-align: left; /* Cevap butonlarının metnini sola hizalar, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+    transition: all 0.3s ease;; /* Cevap butonlarının tüm özelliklerinde 0.3 saniyelik bir geçiş efekti ekler, böylece kullanıcı etkileşimlerinde daha akıcı ve hoş bir görünüm sağlar */   
+}
+
+.answer-btn:hover{ /*:hover: Fare üzerine gelince renk değişimi*/
+    background-color: #eadbc8; /* Cevap butonlarının üzerine gelindiğinde arka plan rengini değiştirir, böylece kullanıcı etkileşimlerinde görsel bir geri bildirim sağlar */
+    border-color: #dac0ae; /* Cevap butonlarının üzerine gelindiğinde kenarlık rengini değiştirir, böylece kullanıcı etkileşimlerinde görsel bir geri bildirim sağlar */
+}
+
+.answer-btn.correct{ /*.correct: Doğru cevap stili (yeşil tonları)*/
+    background-color: #e6fff0; /* Doğru cevaba sahip butonların arka plan rengini açık yeşil yapar, böylece doğru cevabı görsel olarak vurgular */
+    border-color: #a3f0c4; /* Doğru cevaba sahip butonların kenarlık rengini açık yeşil yapar, böylece doğru cevabı görsel olarak vurgular */
+    color: #28a745 /* Doğru cevaba sahip butonların metin rengini yeşil yapar, böylece doğru cevabı görsel olarak vurgular */
+}
+
+.answer-btn.incorrect{ /*.incorrect: Yanlış cevap stili (kırmızı tonları)*/ 
+    background-color: #fff0f0; /* Yanlış cevaba sahip butonların arka plan rengini açık kırmızı yapar, böylece yanlış cevabı görsel olarak vurgular */
+    border-color: #ffbdbd; /* Yanlış cevaba sahip butonların kenarlık rengini açık kırmızı yapar, böylece yanlış cevabı görsel olarak vurgular */
+    color: #dc3545; /* Yanlış cevaba sahip butonların metin rengini kırmızı yapar, böylece yanlış cevabı görsel olarak vurgular */      
+}
+
+.progress-bar{
+    height: 10px; /* İlerleme çubuğunun yüksekliğini 10 piksel yapar, böylece ince ve şık bir görünüm sağlar */ 
+    background-color: #f8f0e5; /* İlerleme çubuğunun arka plan rengini açık bir ton yapar, böylece daha çekici ve kullanıcı dostu bir görünüm sağlar */
+    border-radius: 5px; /* İlerleme çubuğunun köşelerini yuvarlar, böylece daha modern ve kullanıcı dostu bir görünüm sağlar */
+    overflow: hidden; /* kenarları yuvarlak gösterir. */
+    margin-top: 20px; /* İlerleme çubuğu ile üstündeki diğer içerik arasında 20 piksel boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */ 
+}
+
+.progress{
+    height: 100%; /* İlerleme göstergesinin yüksekliğini, ilerleme çubuğunun yüksekliği kadar yapar, böylece çubuğun içinde tam olarak yer alır */  
+    background-color: #e86a33; /* İlerleme göstergesinin arka plan rengini turuncu yapar, böylece ilerlemeyi görsel olarak vurgular */
+    width: 0%; /* İlerleme göstergesinin başlangıç genişliğini 0 yapar, böylece ilerleme başladığında genişlemeye başlar */ 
+    transition: width 0.3s ease; /* İlerleme göstergesinin genişliğinde 0.3 saniyelik bir geçiş efekti ekler, böylece ilerleme güncellemelerinde daha akıcı ve hoş bir görünüm sağlar */    
+}
+
+.result-info{
+    background-color: #f8f0e5; /* Sonuç bilgisi kutusunun arka plan rengini açık bir ton yapar, böylece daha çekici ve kullanıcı dostu bir görünüm sağlar */
+    border-radius: 10px; /* Sonuç bilgisi kutusunun köşelerini yuvarlar, böylece daha modern ve kullanıcı dostu bir görünüm sağlar */
+    padding: 20px; /* Sonuç bilgisi kutusunun iç kenar boşluğunu 20 piksel yapar, böylece içerik kenarlara yapışmaz ve daha düzenli bir görünüm sağlar */
+    margin-bottom: 30px; /* Sonuç bilgisi kutusu ile altındaki diğer içerik arasında 30 piksel boşluk bırakır, böylece daha düzenli ve okunabilir bir görünüm sağlar */
+}
+
+#result-message{
+    font-size: 1.5rem; /* Sonuç mesajının boyutunu 1.5 rem yapar, böylece okunabilir ve etkileyici bir görünüm sağlar */
+    font-weight: 600; /* Sonuç mesajının kalınlığını 600 yapar, böylece daha belirgin ve dikkat çekici bir görünüm sağlar */
+    color: #e86a33; /* Sonuç mesajının rengini turuncu yapar, böylece dikkat çekici ve enerjik bir görünüm sağlar */
+}
+
+button{
+    background-color: #e86a33; /* Butonların arka plan rengini turuncu yapar, böylece dikkat çekici ve enerjik bir görünüm sağlar */    
+    color: white; /* Butonların metin rengini beyaz yapar, böylece turuncu arka planla kontrast oluşturur ve daha okunabilir bir görünüm sağlar */  
+    border: none; /* Butonların kenarlığını kaldırır, böylece daha modern ve temiz bir görünüm sağlar */    
+    border-radius: 10px; /* Butonların köşelerini yuvarlar, böylece daha modern ve kullanıcı dostu bir görünüm sağlar */    
+    padding: 15px 30px; /* Butonların iç kenar boşluğunu 15 piksel dikey ve 30 piksel yatay yapar, böylece metin butonun içinde rahatça yer alır ve daha çekici bir görünüm sağlar */   
+    font-size: 1rem; /* Butonların metin boyutunu 1 rem yapar, böylece okunabilir ve dengeli bir görünüm sağlar */  
+    cursor: pointer; /* Butonların üzerine gelindiğinde imleci el şeklinde yapar, böylece kullanıcıya tıklanabilir olduğunu gösterir */ 
+    transition: background-color 0.3s ease; /* Butonların arka plan renginde 0.3 saniyelik bir geçiş efekti ekler, böylece kullanıcı etkileşimlerinde daha akıcı ve hoş bir görünüm sağlar */   
+}
+
+button:hover{ /*:hover: Fare üzerine gelince renk değişimi*/
+    background-color: #d65a1c; /* Butonların üzerine gelindiğinde arka plan rengini koyu turuncu yapar, böylece kullanıcı etkileşimlerinde görsel bir geri bildirim sağlar */
+}
+
+@media (max-width: 500px) {
+    .screen{
+        padding: 1rem; /* Ekranın iç kenar boşluğunu 1 rem yapar, böylece içerik kenarlara yapışmaz ve daha düzenli bir görünüm sağlar */;
+    }
+
+    #start-screen h1{
+        font-size: 2rem; /* Başlık metninin boyutunu 2 rem yapar, böylece küçük ekranlarda daha uygun ve okunabilir bir görünüm sağlar */   
+    }
+
+    #question-text{
+        font-size: 1.2rem; /* Soru metninin boyutunu 1.2 rem yapar, böylece küçük ekranlarda daha uygun ve okunabilir bir görünüm sağlar */ 
+    }
+    
+    #answer-btn{
+        padding: 12px; /* Cevap butonlarının iç kenar boşluğunu 12 piksel yapar, böylece küçük ekranlarda daha uygun ve kullanıcı dostu bir görünüm sağlar */
+        
+    }
+
+    button{
+        padding: 12px 25px; /* Butonların iç kenar boşluğunu 12 piksel dikey ve 25 piksel yatay yapar, böylece küçük ekranlarda daha uygun ve kullanıcı dostu bir görünüm sağlar */
+        font-size: 0.9rem; /*}
+}
+
+
+

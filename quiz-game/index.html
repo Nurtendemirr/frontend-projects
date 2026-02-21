@@ -1,0 +1,51 @@
+<!DOCTYPE html> <!--HTML5 dökümanı oldğunu belirtir-->
+<html lang="en"> <!--sayfanın ingilizce olduğunu belirtir-->
+  <head> <!--sayfanın başlık ve meta bilgilerini içerir-->
+    <meta charset="UTF-8" /> <!--karakter kodlamasını belirtir-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--sayfanın mobil cihazlarda düzgün görüntülenmesini sağlar-->
+    <title>Quiz Game</title> <!--sayfanın başlığını belirler(tarayıcıda)-->
+    <link rel="stylesheet" href="style.css" /> <!--style.css dosyasını sayfaya bağlar, bu dosya sayfanın görünümünü düzenler-->
+  </head> 
+  <body> <!--sayfanın içeriğini içerir-->
+    <div class="container"> <!--sayfanın ana kapsayıcısı, tüm içeriği içine alır ve düzenler-->
+      <div class="screen active" id="start-screen"> <!--başlangıç ekranı, kullanıcı quiz'e başlamadan önce gösterilir, "active" sınıfı bu ekranın görünür olduğunu belirtir , js'de bu ekrana erişmek için id kullanılır-->
+        <h1>Quiz Time!</h1> <!--başlık, quiz'in adını belirtir-->
+        <p>Test your knowledge with these fun questions</p> <!--açıklama, quiz'in ne hakkında olduğunu belirtir-->
+        <button id="start-btn">Start Quiz</button> <!--başlat butonu, kullanıcı bu butona tıkladığında quiz başlayacak, js'de bu butona erişmek için id kullanılır-->
+      </div>
+
+      <div class="screen" id="quiz-screen"> <!--quiz ekranı, kullanıcı quiz'e başladıktan sonra gösterilir, başlangıç ekranında "active" sınıfı kaldırılarak bu ekranın görünür olması sağlanır, js'de bu ekrana erişmek için id kullanılır-->
+        <div class="quiz-header"> <!--quiz başlığı ve bilgilerini içeren bölüm-->
+          <h2 id="question-text">Question goes here</h2> <!--soru metni, js tarafından dinamik olarak güncellenecek, başlangıçta bir yer tutucu metin içerir, js'de bu elemana erişmek için id kullanılır-->
+          <div class="quiz-info"> <!--soru bilgilerini içeren bölüm, soru numarası ve skor gibi bilgileri içerir-->
+            <p> <!--soru numarası, js tarafından dinamik olarak güncellenecek, başlangıçta bir yer tutucu metin içerir, js'de bu elemana erişmek için id kullanılır-->
+              Question <span id="current-question">1</span> of <span id="total-questions">5</span>
+            </p>
+
+            <p>Score: <span id="score">0</span></p> <!--skor bilgisi, js tarafından dinamik olarak güncellenecek, başlangıçta 0 olarak ayarlanır, js'de bu elemana erişmek için id kullanılır-->
+          </div> 
+        </div>
+
+        <div id="answers-container" class="answers-container"> <!--js ile cevap butonlarının ekleneceği alan-->
+          <!-- Answer buttons will be insterted here from our js code later at some point(cevap butonları jd kodumuzdan eklenecek)-->
+        </div>
+
+        <div class="progress-bar"> <!--soru ilerleme çubuğu, js tarafından dinamik olarak güncellenecek, kullanıcı her soruyu cevapladığında bu çubuk ilerleyecek-->
+          <div id="progress" class="progress"></div> <!--ilerleme çubuğunun kendisi, js tarafından genişliği dinamik olarak güncellenecek, başlangıçta boş olarak ayarlanır, js'de bu elemana erişmek için id kullanılır-->
+        </div>
+      </div>
+
+      <div id="result-screen" class="screen"> <!--sonuç ekranı, kullanıcı quiz'i tamamladıktan sonra gösterilir, başlangıçta görünmez, js'de bu ekrana erişmek için id kullanılır-->
+        <h1>Quiz Results</h1> <!--başlık, sonuç ekranının adını belirtir-->
+        <div class="result-info"> <!--sonuç bilgilerini içeren bölüm, kullanıcıya skorunu ve bir mesajı göstermek için kullanılır-->
+          <p>You scored <span id="final-score">0</span> out of <span id="max-score">5</span></p> <!--final skor bilgisi, js tarafından dinamik olarak güncellenecek, başlangıçta 0 olarak ayarlanır, js'de bu elemana erişmek için id kullanılır-->
+
+          <div id="result-message">Good job!</div> <!--sonuç mesajı, js tarafından dinamik olarak güncellenecek, kullanıcının performansına göre farklı mesajlar göstermek için kullanılır, başlangıçta "Good job!" olarak ayarlanır, js'de bu elemana erişmek için id kullanılır-->
+        </div>
+        <button id="restart-btn">Restart Quiz</button> <!--yeniden başlat butonu, kullanıcı bu butona tıkladığında quiz yeniden başlayacak, js'de bu butona erişmek için id kullanılır-->
+      </div>
+    </div>
+
+    <script src="script.js"></script> <!--script.js dosyasını sayfaya bağlar, bu dosya quiz'in işlevselliğini sağlar, kullanıcı etkileşimlerini yönetir ve quiz'in dinamik içeriğini günceller-->
+  </body>
+</html>
