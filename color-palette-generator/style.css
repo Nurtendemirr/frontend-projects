@@ -1,0 +1,120 @@
+/* Basic Reset */
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+  margin: 0; /* Tüm elementlerin varsayılan margin değerini sıfırlar */
+  padding: 0; /* Tüm elementlerin varsayılan padding değerini sıfırlar */
+  box-sizing: border-box; /* Tüm elementlerin genişlik ve yükseklik hesaplamasında padding ve border'ı dahil eder */
+  font-family: "Poppins", sans-serif; /* Tüm elementlerde Poppins yazı tipini kullanır, eğer bu yazı tipi bulunmazsa sans-serif yazı tipini kullanır */
+}
+
+body {
+  background: linear-gradient(135deg, #83a8df, #c3cfe2); /* Sayfanın arka planını 135 derece açıyla geçişli bir renk düzeniyle ayarlar */
+  min-height: 100vh; /* Sayfanın minimum yüksekliğini viewport yüksekliği kadar yapar, böylece sayfa her zaman tam ekran görünür */
+  display: flex; /* Sayfa içeriğini esnek kutu düzeniyle hizalar */
+  align-items: center; /* Sayfa içeriğini dikey olarak ortalar */
+  justify-content: center; /* Sayfa içeriğini yatay olarak ortalar */
+  padding: 20px; /* Sayfanın etrafına 20 piksel boşluk ekler */
+}
+
+.container {
+  background-color: #fff; /* Konteynerin arka plan rengini beyaz yapar */
+  border-radius: 1rem; /* Konteynerin köşelerini 1 rem yarıçapında yuvarlar */
+  padding: 2rem; /* Konteynerin içindeki içeriğe 2 rem boşluk ekler */
+  width: 100%; /* Konteynerin genişliğini yüzde 100 yapar, böylece ekranın tamamını kaplar */
+  max-width: 800px; /* Konteynerin maksimum genişliğini 800 piksel yapar, böylece çok büyük ekranlarda bile okunabilir kalır */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Konteynerin altına hafif bir gölge ekler, böylece sayfada daha belirgin hale gelir */
+}
+
+h1 {
+  text-align: center; /* Başlığı yatay olarak ortalar */
+  margin-bottom: 1.5rem; /* Başlığın altına 1.5 rem boşluk ekler */
+  color: #333; /* Başlık metninin rengini koyu gri yapar */
+  position: relative; /* Başlık için konumlandırma bağlamı oluşturur, böylece ::after pseudo-elementi başlığa göre konumlandırılabilir */
+  padding-bottom: 0.5rem; /* Başlığın altına 0.5 rem boşluk ekler, böylece alt çizgi başlığa çok yakın olmaz */
+}
+
+h1::after { /* Başlığın altına bir çizgi eklemek için kullanılan pseudo-element */
+  content: ""; /* Pseudo-elementin içeriğini boş yapar, böylece sadece görsel bir öğe olarak kullanılır */
+  position: absolute; /* Pseudo-elementi başlığa göre konumlandırmak için absolute konumlandırma kullanır */
+  bottom: 0; /* Pseudo-elementi başlığın altına yerleştirir */
+  left: 50%; /* Pseudo-elementin sol kenarını başlığın ortasına hizalar */
+  transform: translateX(-50%); /* Pseudo-elementi kendi genişliğinin yarısı kadar sola kaydırarak tam ortalanmasını sağlar */
+  width: 50%; /* Pseudo-elementin genişliğini başlığın yarısı yapar */
+  height: 3px; /* Pseudo-elementin yüksekliğini 3 piksel yapar, böylece ince bir çizgi görünür */
+  background-color: #667eea; /* Pseudo-elementin arka plan rengini belirler, böylece çizgi görünür olur */
+  border-radius: 2px; /* Pseudo-elementin köşelerini 2 piksel yarıçapında yuvarlar, böylece çizgi daha yumuşak görünür */
+}
+
+#generate-btn { /* Renk paleti oluşturma butonunun stilleri */
+  background: linear-gradient(45deg, #667eea, #764ba2); /* Butonun arka planını 45 derece açıyla geçişli bir renk düzeniyle ayarlar */
+  color: white; /* Buton metninin rengini beyaz yapar */
+  border: none; /* Butonun varsayılan kenarlığını kaldırır */
+  padding: 0.8rem 1.5rem; /* Butonun içindeki metne 0.8 rem dikey ve 1.5 rem yatay boşluk ekler */
+  border-radius: 50px; /* Butonun köşelerini 50 piksel yarıçapında yuvarlar, böylece oval bir şekil oluşturur */
+  cursor: pointer; /* Fare imlecini butonun üzerine geldiğinde bir el simgesi yapar, böylece butonun tıklanabilir olduğunu gösterir */
+  font-weight: 500; /* Buton metninin kalınlığını 500 yapar, böylece daha belirgin görünür */
+  margin-bottom: 2rem; /* Butonun altına 2 rem boşluk ekler, böylece buton ile renk paletleri arasında yeterli boşluk olur */
+  font-size: 1rem; /* Buton metninin boyutunu 1 rem yapar, böylece okunabilir bir boyutta olur */
+}
+
+#generate-btn:hover { /* Butonun üzerine gelindiğinde uygulanacak stiller */
+  transform: translateY(-2px); /* Butonu 2 piksel yukarı kaydırarak hafif bir hareket efekti oluşturur */
+  box-shadow: 0 6px 10px rgba(102, 126, 234, 0.3); /* Butonun altına hafif bir gölge ekler, böylece buton daha belirgin hale gelir */
+}
+
+#generate-btn:active { /* Butona tıklandığında uygulanacak stiller */
+  transform: translateY(0); /* Butonu normal konumuna geri getirir, böylece tıklama efekti oluşturur */
+}
+
+.palette-container { /* Renk paletlerini içeren konteynerin stilleri */
+  display: grid; /* Renk kutularını düzenlemek için CSS Grid kullanır */
+  gap: 1rem; /* Renk kutuları arasında 1 rem boşluk ekler */
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Renk kutularını otomatik olarak sığacak şekilde düzenler, minimum genişlik 130 piksel ve maksimum genişlik 1 fraksiyon (konteynerin kalan alanı) */
+}
+
+.color-box { /* Her bir renk kutusunu temsil eden div'in stilleri */
+  border-radius: 10px; /* Renk kutusunun köşelerini 10 piksel yarıçapında yuvarlar */
+  overflow: hidden; /* Renk kutusunun içeriğinin kutu sınırlarını aşmasını engeller, böylece köşeler düzgün görünür */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Renk kutusunun altına hafif bir gölge ekler, böylece kutular daha belirgin hale gelir */
+  transition: transform 0.2s; /* Renk kutusunun hareket efektini yumuşatmak için dönüşüm geçişi ekler */
+}
+
+.color-box:hover { /* Renk kutusunun üzerine gelindiğinde uygulanacak stiller */
+  transform: translateY(-5px); /* Renk kutusunu 5 piksel yukarı kaydırarak hafif bir hareket efekti oluşturur */
+}
+
+.color { /* Renk kutusunun içindeki renk bloğunun stilleri */
+  height: 120px; /* Renk bloğunun yüksekliğini 120 piksel yapar, böylece kutunun büyük bir bölümünü kaplar */
+  cursor: pointer; /* Fare imlecini renk bloğunun üzerine geldiğinde bir el simgesi yapar, böylece bloğun tıklanabilir olduğunu gösterir */
+}
+
+.color-info { /* Renk kutusunun altındaki bilgi bölümünün stilleri */
+  background-color: #fff; /* Renk bilgisi bölümünün arka plan rengini beyaz yapar, böylece renk kodu ve kopyalama simgesi daha belirgin olur */
+  padding: 0.7rem; /* Renk bilgisi bölümünün içindeki metne 0.7 rem boşluk ekler, böylece metin ve simge kutunun kenarlarından uzaklaşır */
+  display: flex; /* Renk kodu ve kopyalama simgesini yatay olarak hizalamak için esnek kutu düzeni kullanır */
+  align-items: center; /* Renk kodu ve kopyalama simgesini dikey olarak ortalar */
+  justify-content: space-between; /* Renk kodu ve kopyalama simgesi arasında mümkün olan en fazla boşluğu bırakır, böylece her iki öğe kutunun kenarlarına yakın olur */
+  font-size: 0.9rem; /* Renk kodu ve kopyalama simgesinin metin boyutunu 0.9 rem yapar, böylece kutunun içinde okunabilir bir boyutta olur */
+}
+
+.hex-value { /* Renk kodunu gösteren span'in stilleri */
+  font-weight: 500; /* Renk kodunun kalınlığını 500 yapar, böylece daha belirgin görünür */
+  letter-spacing: 0.5px; /* Renk kodunun harfleri arasına 0.5 piksel boşluk ekler, böylece kod daha okunabilir hale gelir */
+}
+
+.copy-btn { /* Kopyalama simgesinin stilleri */
+  cursor: pointer; /* Fare imlecini kopyalama simgesinin üzerine geldiğinde bir el simgesi yapar, böylece simgenin tıklanabilir olduğunu gösterir */
+  color: #64748b; /* Kopyalama simgesinin rengini belirler, böylece simge daha belirgin hale gelir */
+  transition: color 0.2s; /* Kopyalama simgesinin renk değişimini yumuşatmak için renk geçişi ekler */
+}
+
+.copy-btn:hover { /* Kopyalama simgesinin üzerine gelindiğinde uygulanacak stiller */
+  color: #667eea; /* Kopyalama simgesinin rengini değiştirir, böylece kullanıcı simgenin tıklanabilir olduğunu daha iyi anlar */
+}
+
+@media (max-width: 768px) { /* Ekran genişliği 768 piksel veya daha az olduğunda uygulanacak stiller */
+  .palette-container { /* Renk paletlerini içeren konteynerin stilleri, mobil cihazlarda daha iyi görünmesi için düzenlenir */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Renk kutularını otomatik olarak sığacak şekilde düzenler, minimum genişlik 100 piksel ve maksimum genişlik 1 fraksiyon (konteynerin kalan alanı) */
+  }
+}
